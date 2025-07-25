@@ -10,7 +10,7 @@ local JobId = game.JobId
 
 _G.Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
-local Window = Rayfield:CreateWindow({
+local Window = _G.Rayfield:CreateWindow({
 	Name = "KARB.ID - SCRIPT HUB",
 	Icon = "gamepad",
 	LoadingTitle = "KARBID SCRIPT HUB",
@@ -86,4 +86,4 @@ CharacterTab:CreateToggle({
 	end,
 })
 
-Rayfield.LoadConfiguration()
+_G.Rayfield.LoadConfiguration()
