@@ -43,7 +43,7 @@ local Window = _G.Rayfield:CreateWindow({
 })
 
 -- Tabs
-local GameTab = Window:CreateTab("Games", "gamepad-2")
+_G.GameTab = Window:CreateTab("Games", "gamepad-2")
 local CharacterTab = Window:CreateTab("Character", "user")
 
 -- CharacterTab Buttons
