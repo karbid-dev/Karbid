@@ -8,7 +8,7 @@ local VirtualUser = game:GetService("VirtualUser")
 local PlaceId = game.PlaceId
 local JobId = game.JobId
 
-local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+_G.Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 local Window = Rayfield:CreateWindow({
 	Name = "KARB.ID - SCRIPT HUB",
