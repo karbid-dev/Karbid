@@ -17,6 +17,8 @@ local PlrGui = Plr:WaitForChild("PlayerGui")
 local Backpack = Plr:WaitForChild("Backpack")
 local Workspace = game.Workspace
 
+
+local Rayfield = _G.Rayfield
 local GameTab = Rayfield:FindTab("Games")
 
 -------------------------------------------------------------
