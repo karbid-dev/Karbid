@@ -5045,9 +5045,9 @@ function Starlight:CreateWindow(WindowSettings)
 							for i, ElementInstance in pairs(Instances) do
 								local flag
 								if Element.Values.Style == 1 then
-									flag = ElementInstance.PART_Backdrop.Accent ~= nil and true or false
+									flag = (ElementInstance.PART_Backdrop:FindFirstChild("Accent") ~= nil and true or false)
 								else
-									flag = ElementInstance.PART_Backdrop.Accent == nil and true or false
+									flag = (ElementInstance.PART_Backdrop:FindFirstChild("Accent") == nil and true or false)
 								end
 								ElementInstance.Visible = flag
 								ElementInstance.Parent = Groupbox.ParentingItem
