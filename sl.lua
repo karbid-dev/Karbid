@@ -1394,12 +1394,9 @@ local function Unhide(Interface)
 					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency
 						~= nil
 				then
-					Tween(
-						v,
-						{
-							BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
-						}
-					)
+					Tween(v, {
+						BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
+					})
 				end
 
 				if
@@ -1407,18 +1404,12 @@ local function Unhide(Interface)
 					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
 					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency ~= nil
 				then
-					Tween(
-						v,
-						{
-							BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
-						}
-					)
-					Tween(
-						v,
-						{
-							TextTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency,
-						}
-					)
+					Tween(v, {
+						BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
+					})
+					Tween(v, {
+						TextTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency,
+					})
 				end
 
 				if
@@ -1426,18 +1417,12 @@ local function Unhide(Interface)
 					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
 					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency
 				then
-					Tween(
-						v,
-						{
-							BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
-						}
-					)
-					Tween(
-						v,
-						{
-							ImageTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency,
-						}
-					)
+					Tween(v, {
+						BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
+					})
+					Tween(v, {
+						ImageTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency,
+					})
 				end
 
 				if
@@ -1460,14 +1445,9 @@ local function Unhide(Interface)
 				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency
 					~= nil
 			then
-				Tween(
-					Interface,
-					{
-						BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute(
-							"InstanceID"
-						)].BackgroundTransparency,
-					}
-				)
+				Tween(Interface, {
+					BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency,
+				})
 			end
 
 			if
@@ -1479,20 +1459,12 @@ local function Unhide(Interface)
 				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
 				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency ~= nil
 			then
-				Tween(
-					Interface,
-					{
-						BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute(
-							"InstanceID"
-						)].BackgroundTransparency,
-					}
-				)
-				Tween(
-					Interface,
-					{
-						TextTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency,
-					}
-				)
+				Tween(Interface, {
+					BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency,
+				})
+				Tween(Interface, {
+					TextTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency,
+				})
 			end
 
 			if
@@ -1500,32 +1472,21 @@ local function Unhide(Interface)
 				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
 				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency
 			then
-				Tween(
-					Interface,
-					{
-						BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute(
-							"InstanceID"
-						)].BackgroundTransparency,
-					}
-				)
-				Tween(
-					Interface,
-					{
-						ImageTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency,
-					}
-				)
+				Tween(Interface, {
+					BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency,
+				})
+				Tween(Interface, {
+					ImageTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency,
+				})
 			end
 
 			if
 				(Interface.ClassName == "UIStroke" or Interface.ClassName == "UIGradient")
 				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency
 			then
-				Tween(
-					Interface,
-					{
-						Transparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency,
-					}
-				)
+				Tween(Interface, {
+					Transparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency,
+				})
 			end
 		end
 	end)
@@ -1851,20 +1812,17 @@ if not isStudio then
 end
 
 -- Sets The Interface Into Roblox's GUI
--- if gethui then
--- 	StarlightUI.Parent = gethui()
+if gethui then
+	StarlightUI.Parent = gethui()
+elseif syn and syn.protect_gui then
+	syn.protect_gui(StarlightUI)
 
--- elseif syn and syn.protect_gui then
--- 	syn.protect_gui(StarlightUI)
-
--- 	StarlightUI.Parent = CoreGui
-
--- elseif not isStudio and CoreGui:FindFirstChild("RobloxGui") then
--- 	StarlightUI.Parent = CoreGui:FindFirstChild("RobloxGui")
-
--- elseif not isStudio then
-StarlightUI.Parent = CoreGui
--- end
+	StarlightUI.Parent = CoreGui
+elseif not isStudio and CoreGui:FindFirstChild("RobloxGui") then
+	StarlightUI.Parent = CoreGui:FindFirstChild("RobloxGui")
+elseif not isStudio then
+	StarlightUI.Parent = gethui
+end
 
 -- hides all old interfaces
 if gethui then
@@ -2226,21 +2184,16 @@ function Starlight:Notification(data)
 						{ Size = UDim2.new(1, -90, 0, 0) }
 					):Play()
 
-					Tween(
-						newNotification,
-						{
-							Size = UDim2.new(
-								1,
-								-90,
-								0,
-								-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
-							),
-						},
-						function()
-							newNotification.Visible = false
-						end,
-						TweenInfo.new(1, Enum.EasingStyle.Exponential)
-					)
+					Tween(newNotification, {
+						Size = UDim2.new(
+							1,
+							-90,
+							0,
+							-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
+						),
+					}, function()
+						newNotification.Visible = false
+					end, TweenInfo.new(1, Enum.EasingStyle.Exponential))
 				end
 
 				CollectionService:AddTag(newNotification, "__starlight_ExpiredNotification")
@@ -4933,8 +4886,15 @@ function Starlight:CreateWindow(WindowSettings)
 									end
 								end)
 
-								if ElementInstance.PART_Backdrop and ElementInstance.PART_Backdrop:FindFirstChild("Accent") then
-									ThemeMethods.bindTheme(ElementInstance.PART_Backdrop.Accent, "Color", "Accents.Main")
+								if
+									ElementInstance.PART_Backdrop
+									and ElementInstance.PART_Backdrop:FindFirstChild("Accent")
+								then
+									ThemeMethods.bindTheme(
+										ElementInstance.PART_Backdrop.Accent,
+										"Color",
+										"Accents.Main"
+									)
 								end
 								ThemeMethods.bindTheme(
 									ElementInstance.PART_Backdrop.UIStroke.Accent,
@@ -5047,9 +5007,13 @@ function Starlight:CreateWindow(WindowSettings)
 							for i, ElementInstance in pairs(Instances) do
 								local flag
 								if Element.Values.Style == 1 then
-									flag = (ElementInstance.PART_Backdrop:FindFirstChild("Accent") ~= nil and true or false)
+									flag = (
+										ElementInstance.PART_Backdrop:FindFirstChild("Accent") ~= nil and true or false
+									)
 								else
-									flag = (ElementInstance.PART_Backdrop:FindFirstChild("Accent") == nil and true or false)
+									flag = (
+										ElementInstance.PART_Backdrop:FindFirstChild("Accent") == nil and true or false
+									)
 								end
 								ElementInstance.Visible = flag
 								ElementInstance.Parent = Groupbox.ParentingItem
@@ -5157,14 +5121,11 @@ function Starlight:CreateWindow(WindowSettings)
 									Instances.Style2.Switch,
 									{ BackgroundTransparency = 0, BackgroundColor3 = Color3.fromRGB(255, 255, 255) }
 								)
-								Tween(
-									Instances.Style2.Switch.Knob,
-									{
-										Position = UDim2.new(0, 20, 0.5, 0),
-										BackgroundColor3 = Starlight.CurrentTheme.Foregrounds.Active,
-										BackgroundTransparency = 0,
-									}
-								)
+								Tween(Instances.Style2.Switch.Knob, {
+									Position = UDim2.new(0, 20, 0.5, 0),
+									BackgroundColor3 = Starlight.CurrentTheme.Foregrounds.Active,
+									BackgroundTransparency = 0,
+								})
 								Tween(Instances.Style2.Switch.UIStroke, { Color = Color3.fromRGB(255, 255, 255) })
 								Tween(Instances.Style2.Switch.DropShadowHolder.DropShadow, { ImageTransparency = 0 })
 								Instances.Style2.Switch.Accent.Enabled = true
@@ -5176,14 +5137,11 @@ function Starlight:CreateWindow(WindowSettings)
 									Instances.Style2.Switch,
 									{ BackgroundTransparency = 1, BackgroundColor3 = knobcolor }
 								)
-								Tween(
-									Instances.Style2.Switch.Knob,
-									{
-										Position = UDim2.new(0, 0, 0.5, 0),
-										BackgroundColor3 = knobcolor,
-										BackgroundTransparency = 0.5,
-									}
-								)
+								Tween(Instances.Style2.Switch.Knob, {
+									Position = UDim2.new(0, 0, 0.5, 0),
+									BackgroundColor3 = knobcolor,
+									BackgroundTransparency = 0.5,
+								})
 								Tween(Instances.Style2.Switch.UIStroke, { Color = knobcolor })
 								Tween(Instances.Style2.Switch.DropShadowHolder.DropShadow, { ImageTransparency = 1 })
 								Instances.Style2.Switch.Accent.Enabled = false
@@ -5673,21 +5631,15 @@ function Starlight:CreateWindow(WindowSettings)
 							if Value then
 								Element.Values.CurrentValue = Value
 
-								Tween(
-									Element.Instance.PART_Backdrop.PART_Progress,
-
-									{
-										Size = UDim2.new(
-											(Value - Element.Values.Range[1])
-												/ (Element.Values.Range[2] - Element.Values.Range[1]),
-											0,
-											1,
-											0
-										),
-									},
-									nil,
-									Tween.Info(nil, nil, 0.2)
-								)
+								Tween(Element.Instance.PART_Backdrop.PART_Progress, {
+									Size = UDim2.new(
+										(Value - Element.Values.Range[1])
+											/ (Element.Values.Range[2] - Element.Values.Range[1]),
+										0,
+										1,
+										0
+									),
+								}, nil, Tween.Info(nil, nil, 0.2))
 								Element.Instance.Value.input.Text = tostring(Value)
 								Element.Instance.Value.input.CursorPosition = #Element.Instance.Value.input.Text + 2
 
@@ -6204,17 +6156,14 @@ function Starlight:CreateWindow(WindowSettings)
 								Element.Instance.PART_Backdrop.PART_Input,
 								{ Size = UDim2.new(0, Element.Instance.PART_Backdrop.PART_Input.TextBounds.X, 1, 0) }
 							)
-							Tween(
-								Element.Instance.PART_Backdrop,
-								{
-									Size = UDim2.new(
-										0,
-										Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
-										0,
-										Element.Instance.PART_Backdrop.Size.Y.Offset
-									),
-								}
-							)
+							Tween(Element.Instance.PART_Backdrop, {
+								Size = UDim2.new(
+									0,
+									Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
+									0,
+									Element.Instance.PART_Backdrop.Size.Y.Offset
+								),
+							})
 
 							Element.Values.CurrentValue = Element.Instance.PART_Backdrop.PART_Input.Text
 						end)
@@ -6291,17 +6240,14 @@ function Starlight:CreateWindow(WindowSettings)
 								Element.Instance.PART_Backdrop.PART_Input,
 								{ Size = UDim2.new(0, Element.Instance.PART_Backdrop.PART_Input.TextBounds.X, 1, 0) }
 							)
-							Tween(
-								Element.Instance.PART_Backdrop,
-								{
-									Size = UDim2.new(
-										0,
-										Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
-										0,
-										Element.Instance.PART_Backdrop.Size.Y.Offset
-									),
-								}
-							)
+							Tween(Element.Instance.PART_Backdrop, {
+								Size = UDim2.new(
+									0,
+									Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
+									0,
+									Element.Instance.PART_Backdrop.Size.Y.Offset
+								),
+							})
 
 							tooltip.Text = Element.Values.Tooltip or ""
 
@@ -7073,13 +7019,10 @@ function Starlight:CreateWindow(WindowSettings)
 											continue
 										end
 
-										Tween(
-											OtherTabButton,
-											{
-												BackgroundTransparency = 1,
-												TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium,
-											}
-										)
+										Tween(OtherTabButton, {
+											BackgroundTransparency = 1,
+											TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium,
+										})
 										OtherTabButton.Accent.Enabled = false
 									end
 									Tween(TabButton, { BackgroundTransparency = 0.8, TextColor3 = Color3.new(1, 1, 1) })
@@ -7375,19 +7318,28 @@ function Starlight:CreateWindow(WindowSettings)
 										if mainDragging then
 											Tween(
 												NestedElement.Instances[2].Container.Color.ColorPicker.Point,
-												{ Size = mainHover and UDim2.new(0, 10, 0, 10) or UDim2.new(0, 7, 0, 7) }
+												{
+													Size = mainHover and UDim2.new(0, 10, 0, 10)
+														or UDim2.new(0, 7, 0, 7),
+												}
 											)
 										end
 										if sliderDragging then
 											Tween(
 												NestedElement.Instances[2].Container.Color.HueSlider.Value.Knob,
-												{ Size = sliderHover and UDim2.new(0, 8, 0, 8) or UDim2.new(0, 6, 0, 6) }
+												{
+													Size = sliderHover and UDim2.new(0, 8, 0, 8)
+														or UDim2.new(0, 6, 0, 6),
+												}
 											)
 										end
 										if transDragging then
 											Tween(
 												NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob,
-												{ Size = transHover and UDim2.new(0, 10, 0, 10) or UDim2.new(0, 8, 0, 8) }
+												{
+													Size = transHover and UDim2.new(0, 10, 0, 10)
+														or UDim2.new(0, 8, 0, 8),
+												}
 											)
 										end
 										mainDragging = false
@@ -9129,7 +9081,8 @@ function Starlight:CreateWindow(WindowSettings)
 						newName = string.gsub(newName, "\\", " ")
 
 						if
-							isfile(`{themesPath}/{newName}{Starlight.FileSystem.FileExtension}`) or themesArray[newName]
+							isfile(`{themesPath}/{newName}{Starlight.FileSystem.FileExtension}`)
+							or themesArray[newName]
 						then
 							Starlight:Notification({
 								Title = "Theme Exists",
@@ -9835,21 +9788,16 @@ function Starlight:CreateWindow(WindowSettings)
 							{ Size = UDim2.new(1, -90, 0, 0) }
 						):Play()
 
-						Tween(
-							newNotification,
-							{
-								Size = UDim2.new(
-									1,
-									-90,
-									0,
-									-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
-								),
-							},
-							function()
-								newNotification.Visible = false
-							end,
-							TweenInfo.new(1, Enum.EasingStyle.Exponential)
-						)
+						Tween(newNotification, {
+							Size = UDim2.new(
+								1,
+								-90,
+								0,
+								-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
+							),
+						}, function()
+							newNotification.Visible = false
+						end, TweenInfo.new(1, Enum.EasingStyle.Exponential))
 					end
 				else
 					for i, newNotification in pairs(CollectionService:GetTagged("__starlight_ExpiredNotification")) do
@@ -9884,15 +9832,10 @@ function Starlight:CreateWindow(WindowSettings)
 
 							task.wait(0.15)
 							TweenService
-								:Create(
-									newNotification,
-									TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
-									{
-										BackgroundTransparency = notificationAcrylic
-												and (mainAcrylic and 0.55 or 0.375)
-											or 0,
-									}
-								)
+								:Create(newNotification, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {
+									BackgroundTransparency = notificationAcrylic and (mainAcrylic and 0.55 or 0.375)
+										or 0,
+								})
 								:Play()
 							TweenService:Create(
 								newNotification.Shadow.antumbraShadow,
