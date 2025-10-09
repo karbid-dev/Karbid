@@ -10624,6 +10624,7 @@ if isStudio and enabled then
 	}, "customtab")
 
 	Starlight:LoadAutoloadConfig()
+	Starlight:SetTheme(Themes[newThemeToApply])
 end --]=]
 
 --// ENDSECTION
