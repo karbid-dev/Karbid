@@ -4933,7 +4933,9 @@ function Starlight:CreateWindow(WindowSettings)
 									end
 								end)
 
-								ThemeMethods.bindTheme(ElementInstance.PART_Backdrop.Accent, "Color", "Accents.Main")
+								if ElementInstance.PART_Backdrop and ElementInstance.PART_Backdrop:FindFirstChild("Accent") then
+									ThemeMethods.bindTheme(ElementInstance.PART_Backdrop.Accent, "Color", "Accents.Main")
+								end
 								ThemeMethods.bindTheme(
 									ElementInstance.PART_Backdrop.UIStroke.Accent,
 									"Color",
