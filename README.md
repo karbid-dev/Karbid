@@ -1,2 +1,0 @@
-# Karbid
-Roblox Script Hub
